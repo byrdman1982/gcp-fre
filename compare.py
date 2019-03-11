@@ -11,7 +11,7 @@ try:
    os.environ['ARCHIVE_PATH']
 except KeyError:
    print "You must set $ARCHIVE_PATH"
-   print "This should be done with `module load fre`"
+   print "This should be done with `module load gcpre`"
    print sys.exit(1)
 archive = os.environ['ARCHIVE_PATH'] 
 

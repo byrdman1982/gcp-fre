@@ -48,7 +48,7 @@ try:
    os.environ['ARCHIVE_PATH']
 except KeyError:
    print "You must set $ARCHIVE_PATH"
-   print "This should be done with `module load fre`"
+   print "This should be done with `module load gcpre`"
    print sys.exit(1)
 archive=os.environ['ARCHIVE_PATH']
 if vv:
@@ -105,17 +105,22 @@ for line in f:
 if vv:
  print "Set up folder starting with "+archive+'/'+exp+'/'
 folder = archive+'/'+exp+'/'
+os.system("mkdir "+folder)
+os.system("chmod 777 "+folder)
 if int(nm) > 0 :
  folder = folder+str(nm)+'m'
 if int(nd) > 0 :
  folder = folder+str(nd)+'d'
 if int(nh) > 0 :
  folder = folder+str(nh)+'h'
+os.system("mkdir "+folder)
+os.system("chmod 777 "+folder)
 if vv:
  print "folder = "+folder
 folder = folder+'/intel_'+cores+'x'+threads+'_'+str(nm)+'m'+str(nd)+'d'
 if vv or verbose:
  print "The files will be moved to "+folder
+
 
 exists = os.path.isdir(folder)
 if verbose or vv:
